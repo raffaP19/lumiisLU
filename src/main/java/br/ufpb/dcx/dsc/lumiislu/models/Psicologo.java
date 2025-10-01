@@ -1,5 +1,6 @@
 package br.ufpb.dcx.dsc.lumiislu.models;
 
+import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.*;
 
@@ -100,10 +101,6 @@ public class Psicologo {
 
     public void setPacientes(List<Paciente> pacientes) {
         this.pacientes = pacientes;
-    }
-
-    public Long getPsicologo_ID() {
-        return null;
     }
 
 }

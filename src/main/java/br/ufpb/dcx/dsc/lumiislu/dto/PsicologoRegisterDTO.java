@@ -1,6 +1,7 @@
 package br.ufpb.dcx.dsc.lumiislu.dto;
 
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 public class PsicologoRegisterDTO {
 
@@ -16,6 +17,7 @@ public class PsicologoRegisterDTO {
     private String senha;
 
     @NotBlank(message = "O CPF não pode ser vazio")
+    @CPF
     private String cpf;
     
     private String telefone;

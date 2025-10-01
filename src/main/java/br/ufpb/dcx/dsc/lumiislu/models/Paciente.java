@@ -1,5 +1,6 @@
 package br.ufpb.dcx.dsc.lumiislu.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
