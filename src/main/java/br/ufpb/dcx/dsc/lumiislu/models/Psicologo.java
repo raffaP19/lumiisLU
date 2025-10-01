@@ -3,6 +3,7 @@ package br.ufpb.dcx.dsc.lumiislu.models;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Psicologo {
@@ -13,6 +14,7 @@ public class Psicologo {
 
     @Column(name = "username", nullable = false, unique = true)
     private String username;
+
 
     @Column(unique = true)
     private String email;
@@ -37,6 +39,8 @@ public class Psicologo {
         this.password = password;
         this.telefone = telefone;
         this.formacao = formacao;
+    }
+    public Psicologo() {
     }
 
     public Long getPsicologo_id() {

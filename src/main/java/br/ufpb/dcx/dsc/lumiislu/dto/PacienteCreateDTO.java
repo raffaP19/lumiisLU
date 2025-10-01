@@ -1,12 +1,16 @@
 package br.ufpb.dcx.dsc.lumiislu.dto;
 
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 public class PacienteCreateDTO {
 
     @NotBlank(message = "O nome do paciente é obrigatório")
     private String nome;
-    
+
+    @NotBlank(message = "O CPF não pode ser vazio")
+    @CPF
+
     private String cpf;
     private String email;
     private String descricao;

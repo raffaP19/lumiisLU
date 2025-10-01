@@ -13,6 +13,7 @@ public class LoginRequestDTO {
     @NotBlank(message = "A senha não pode ser vazia")
     private String senha;
 
+
     public String getEmail() {
         return email;
     }

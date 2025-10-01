@@ -3,8 +3,8 @@ package br.ufpb.dcx.dsc.lumiislu.dto;
 
 public class PacienteResponseDTO {
 
-    private Long id;
-    private String nome;
+    private Long paciente_id;
+    private String username;
     private String cpf;
     private String email;
     private String descricao;
@@ -14,20 +14,20 @@ public class PacienteResponseDTO {
     private String cidade;
     private String estado;
 
-    public Long getId() {
-        return id;
+    public Long getPaciente_id() {
+        return paciente_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPaciente_id(Long id) {
+        this.paciente_id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUsername(String nome) {
+        this.username = nome;
     }
 
     public String getCpf() {
