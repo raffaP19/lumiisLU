@@ -79,6 +79,6 @@ pm.test("Token foi recebido com sucesso", function () {
 
 ---
 
-Acesse o Swagger para ver as demais rotas:
+Acesse o Swagger para ver as demais rotas: (O sistema precisa ter sido inicializado para que o link abaixo funcione)
 - http://localhost:8080/swagger-ui.html
   
