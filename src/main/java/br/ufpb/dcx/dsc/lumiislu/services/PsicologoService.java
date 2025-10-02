@@ -30,21 +30,4 @@ public class PsicologoService {
         return psicologoRepository.save(novoPsicologo);
     }
 
-    public Psicologo buscarPorId(Long id) {
-        return psicologoRepository.getReferenceById(id);
-    }
-
-    public Psicologo atualizarDados(Long id, Psicologo dadosAtualizados) {
-        Optional<Psicologo> psicologoOpt = psicologoRepository.findById(id);
-        if (psicologoOpt.isPresent()) {
-            Psicologo psicologoParaAtualizar = psicologoOpt.get();
-            psicologoParaAtualizar.setUsername(dadosAtualizados.getUsername());
-            psicologoParaAtualizar.setEmail(dadosAtualizados.getEmail());
-            psicologoParaAtualizar.setTelefone(dadosAtualizados.getTelefone());
-            psicologoParaAtualizar.setFormacao(dadosAtualizados.getFormacao());
-            return psicologoRepository.save(psicologoParaAtualizar);
-        }
-        return null;
-    }
-
 }
