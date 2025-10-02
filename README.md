@@ -30,7 +30,7 @@ Maven (opcional, pois o projeto usa o Maven Wrapper).
 
 1. Clone o repositório:
 
-<Este Repositório>.
+   <Este Repositório>.
 
 2. Configure o Banco de Dados:
 
@@ -42,46 +42,38 @@ spring.datasource.password=sua_senha
 
 3. Dê start no arquivo **LumiisLuApplication.java**, localizado:
 
-lumiisLU/
-├── .mvn/
-│   └── wrapper/
-│       └── x
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── br/ufpb/dcx/dsc/lumiislu/
-│   │   │       ├── config/
-│   │   │       │   ├── ModelMapperConfig.java
-│   │   │       │   └── WebSecurityConfig.java
-│   │   │       ├── controller/
-│   │   │       │   ├── AuthController.java
-│   │   │       │   ├── PacienteController.java
-│   │   │       │   └── ProntuarioController.java
-│   │   │       ├── dto/
-│   │   │       │   ├── LoginRequestDTO.java
-│   │   │       │   ├── x
-│   │   │       │   └── PsicologoResponseDTO.java
-│   │   │       ├── exception/
-│   │   │       │   └── GlobalExceptionHandler.java
-│   │   │       ├── models/
-│   │   │       │   ├── Paciente.java
-│   │   │       │   ├── Prontuario.java
-│   │   │       │   └── Psicologo.java
-│   │   │       ├── repository/
-│   │   │       │   ├── PacienteRepository.java
-│   │   │       │   ├── ProntuarioRepository.java
-│   │   │       │   └── PsicologoRepository.java
-│   │   │       ├── security/
-│   │   │       │   ├── JWTAuthenticationFilter.java
-│   │   │       │   ├── JWTAuthorizationFilter.java
-│   │   │       │   └── x
-│   │   │       ├── services/
-│   │   │       │   ├── PacienteService.java
-│   │   │       │   ├── ProntuarioService.java
-│   │   │       │   └── PsicologoService.java
-│   │   │       ├── validation/
-│   │   │       │   └── x
-│   │   │       └── LumiisLuApplication.java
-│   │   x
-│   │       
-x   x                        
+lumiisLU/src/main/java/br/ufpb/dcx/dsc/lumiislu/LumiisLuApplication.java
+
+4. Utilizar o Postman para executar as rotas:
+
+Para que os pacientes sejam cadastrados é preciso que o Psicologo tenha sido cadastrado primeiro, pois com o token do Psicologo, todas as rotas recebem a liberação para funcionarem.
+
+5. Inicialmente para funcionar:
+
+- Post: http://localhost:8080/auth/register -> Registar o Psicologo. (Deve-se colocar no Authorization **No Auth**)
+- Post: http://localhost:8080/auth/login -> Para gerar o token e poder liberar as demais requisições. (Deve-se colocar no Authorization **No Auth**)
+- Get: http://localhost:8080/auth/me -> Retorna as informações necessárias para o psicologo conferir seu cadastro. (Aqui o token é necessário, ele foi gerado no login. No Auth Type, colocar **Bearer Token** para funcionar a requisição)
+  
+->>> Para facilitar, aqui vai um script que preenche automaticamente após gerar o token nas demais requisições: (Ele deve ser colocado em **Script** de Login)
+
+pm.test("Token foi recebido com sucesso", function () {
+    // 1. Converte a resposta JSON em um objeto JavaScript
+    const responseJson = pm.response.json();
+
+    // 2. Verifica se a propriedade "token" existe na resposta
+    pm.expect(responseJson.token).to.not.be.empty;
+
+    // 3. Extrai o valor do token
+    const token = responseJson.token;
+
+    // 4. Guarda o token na variável de coleção chamada "AUTH_TOKEN"
+    pm.collectionVariables.set("AUTH_TOKEN", token);
+
+    console.log("Token de autenticação salvo com sucesso!");
+
+});
+
+**Para que ele faça isso sem precisar copiar e colar o token, deve-se preencher neste campo em branco de Authorization com a variavel "{{AUTH_TOKEN}}" em: Auth Type, **Bearer Token, campo em branco ao lado direito.**
+
+...continua
+  
