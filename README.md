@@ -73,7 +73,7 @@ pm.test("Token foi recebido com sucesso", function () {
 
 });
 
-**Para que ele faça isso sem precisar copiar e colar o token, deve-se preencher neste campo em branco de Authorization com a variavel "{{AUTH_TOKEN}}" em: Auth Type, **Bearer Token, campo em branco ao lado direito.**
+**Este Script fará a colocação do token sem precisar copiar e colar o token todas as vezes, para isso, deve-se preencher neste campo em branco de Authorization com a variavel "{{AUTH_TOKEN}}" em: Auth Type, **Bearer Token, campo em branco ao lado direito.**
 
 ...continua
 
