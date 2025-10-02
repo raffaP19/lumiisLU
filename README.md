@@ -76,4 +76,9 @@ pm.test("Token foi recebido com sucesso", function () {
 **Para que ele faça isso sem precisar copiar e colar o token, deve-se preencher neste campo em branco de Authorization com a variavel "{{AUTH_TOKEN}}" em: Auth Type, **Bearer Token, campo em branco ao lado direito.**
 
 ...continua
+
+---
+
+Acesse o Swagger para ver as demais rotas:
+- http://localhost:8080/swagger-ui.html
   
